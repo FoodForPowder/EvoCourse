@@ -1,0 +1,22 @@
+<div class="counter">
+  <h1 class="counter__title">Counter</h1>
+  <div class="counter__body">
+    <button (click)="decrement()" class="counter__button counter__button_red">
+      -
+    </button>
+    <span
+      [ngClass]="{
+        counter__value_red: value < 0,
+        counter__value_green: value > 0
+      }"
+      class="counter__value"
+      >{{ value }}</span
+    >
+    <button (click)="increment()" class="counter__button counter__button_green">
+      +
+    </button>
+  </div>
+  <button (click)="reset()" class="counter__button counter__button__reset">
+    Reset
+  </button>
+</div>

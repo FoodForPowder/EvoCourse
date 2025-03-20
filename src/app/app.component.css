@@ -17,3 +17,6 @@
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
+.hello-page__counter{
+    margin: 15px 0 0 0;
+}

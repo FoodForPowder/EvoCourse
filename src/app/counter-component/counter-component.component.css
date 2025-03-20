@@ -1,0 +1,65 @@
+.counter {
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+    align-items: center;
+}
+.counter__title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #4d4d4d;
+    text-transform: uppercase;
+}
+.counter__body {
+    width: 300px;
+    display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 30px;
+      background-color: #dfdfdf;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+.counter__button {
+    min-width: 50px;
+    min-height: 50px;
+      border-radius: 10px;
+      background-color: white;
+      color: #333;
+      font-size: 24px; 
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.counter__button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  .counter__button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+.counter__button_red {
+    color: #e74c3c;
+}
+.counter__button_green {
+    color: #2ecc71;
+}
+.counter__value {
+    font-size: 36px;
+      font-weight: 700;
+      color: #333;
+      min-width: 80px;
+      text-align: center;
+}
+.counter__value_red {
+    color: #e74c3c;
+}
+.counter__value_green {
+    color: #2ecc71;
+}
+.counter__button__reset{
+    padding: 6px 12px;
+      border: none;
+      background-color: #f1f1f1;
+      color: #555;
+      border-radius: 4px;
+}
