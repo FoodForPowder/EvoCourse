@@ -3,10 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AddFivePipe } from './pipes/add-five.pipe';
+import { PeopleComponent } from './people/people.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AddFivePipe,
+    PeopleComponent
   ],
   imports: [
     BrowserModule,
