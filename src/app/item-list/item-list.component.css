@@ -1,0 +1,38 @@
+.item-list-page__link {
+    color: #ffc300;
+    text-decoration: none;
+}
+.item-list-page__title {
+    color: #ffc300;
+    margin: 15px 0 20px 0;
+    text-align: center;
+}
+.item-list-page__body {
+    background: linear-gradient(to bottom, #fffbeb, #ffffff);
+    display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+    padding: 10px 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+.item-card {
+    background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px 10px;
+}
+.item-card__title {
+    text-decoration: none;
+    margin: 10px 0 0 0;
+    color: #ffc300;
+}
+.item-card__title:hover{
+    text-decoration: underline;
+}
+.item-card__description {
+    color: #666;
+}
+.item-card__price{
+    color: #333;
+}

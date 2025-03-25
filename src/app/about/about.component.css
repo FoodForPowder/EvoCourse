@@ -1,0 +1,31 @@
+.about-page__link {
+            color: #ff9f1c;
+            text-decoration: none;
+}
+.about-page__title {
+    color: #e76f51;
+    margin: 15px 0 20px 0;
+    text-align: center;
+}
+.about-page__body {
+    border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(to bottom, #fff3e0, #ffffff);
+}
+.about-page__item:not(:last-child) {
+    margin: 0 0 10px 0;
+}
+.about-item__title {
+    color: #f4a261;
+    margin: 0 0 15px 0;
+}
+.about-item__text {
+    color: #555;
+}
+.about-item__list {
+    color: #555;
+}
+.about-item__list-item {
+    margin: 0 0 0 8px;
+}

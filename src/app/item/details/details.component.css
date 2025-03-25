@@ -1,0 +1,22 @@
+
+.item-detail__body {
+    background: linear-gradient(to bottom, #fffbeb, #ffffff);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 15px 0 20px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.item-detail__title {
+    color: #ffc300;
+}
+.item-detail__text {
+    color: #555;
+}
+.item-detail__table td {
+    padding: 12px 15px;
+    border: 1px solid #eee;
+}
+.item-detail__table td:first-child {
+    font-weight: bold;
+}

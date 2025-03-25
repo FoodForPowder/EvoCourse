@@ -1,0 +1,33 @@
+.main-page__title {
+    text-align: center;
+    color: #0a2463;
+    margin: 0 0 25px 0;
+}
+.main-page__cards {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap:20px
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+.card {
+    padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+}
+.card_red {
+    background: linear-gradient(to right, #e63946, #e5383b);
+}
+.card_orange {
+    background: linear-gradient(to right, #ff9f1c, #ffbf69);
+}
+.card_yellow {
+    background: linear-gradient(to right, #ffdd00, #ffd60a);
+}

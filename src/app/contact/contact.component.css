@@ -1,0 +1,40 @@
+
+.contact-page__link{
+    display: inline-block;
+    color: #e63946;
+    text-decoration: none;
+}
+.contact-page__title {
+    margin: 15px 0 20px 0;
+    color: #c1121f;
+    text-align: center;         
+}
+.contact-page__body {
+    background: linear-gradient(to bottom, #ffebee, #ffffff);
+    border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.contact-page__item {
+    margin: 0 0 10px 0;
+            
+}
+.contact-page__item:last-child {
+    margin: 0 0 0 0;
+}
+.contact-item {
+    display: flex;
+    gap: 15px;
+}
+.contact-item__image svg{
+    width: 24px;
+            height: 24px;
+            color: #e63946;
+}
+.contact-item__title {
+    margin-bottom: 5px;
+            color: #333;
+}
+.contact-item__text {
+    color: #555;
+}

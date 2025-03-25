@@ -1,0 +1,15 @@
+<div class="item-list-page">
+  <div class="item-list-page__container _container">
+    <div class="item-list-page__header">
+      <a routerLink="/" class="item-list-page__link">← Вернуться на главную</a>
+      <h1 class="item-list-page__title">Наши товары</h1>
+    </div>
+    <div class="item-list-page__body">
+      <div *ngFor="let item of items" class="item-list-page__card item-card">
+        <a [routerLink]="[item.id]" class="item-card__title">{{ item.name }}</a>
+        <div class="item-card__description">{{ item.description }}</div>
+        <div class="item-card__price">{{ item.price | currency : "RUB" : "symbol-narrow" : "0.0-0" }}</div>
+      </div>
+    </div>
+  </div>
+</div>

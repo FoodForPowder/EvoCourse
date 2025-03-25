@@ -1,0 +1,10 @@
+.item-list__body {
+    background: linear-gradient(to bottom, #fffbeb, #ffffff);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 15px 0 20px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.item-list__title {
+    color: #ffc300;
+}

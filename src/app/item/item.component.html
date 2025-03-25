@@ -1,0 +1,30 @@
+<div class="item-page">
+  <div class="item-page__container _container">
+    <a routerLink="/item" class="item-page__link">← К списку товаров</a>
+    <div *ngIf="item" class="item-page__info">
+      <div class="item-page__name">{{ item.name }}</div>
+      <div class="item-page__description">{{ item.description }}</div>
+      <div class="item-page__price">
+        {{ item.price | currency : "RUB" : "symbol-narrow" : "0.0-0" }}
+      </div>
+      <div class="item-page__actions">
+        <a
+          routerLink="details"
+          class="item-page__button"
+          (click)="getActiveButton('details')"
+          [ngClass]="{ 'item-page__button_active': isDetailActive }"
+          >Детали</a
+        >
+        <a
+          routerLink="list"
+          class="item-page__button"
+          (click)="getActiveButton('list')"
+          [queryParams]="{ list: 1, enable: true }"
+          [ngClass]="{ 'item-page__button_active': isListActive }"
+          >Список</a
+        >
+      </div>
+    </div>
+    <router-outlet />
+  </div>
+</div>

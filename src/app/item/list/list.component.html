@@ -1,0 +1,21 @@
+<div class="item-list">
+  <div *ngIf="itemList" class="item-list__body">
+    <h2 class="item-list__title">Список характеристик</h2>
+    <table class="item-list__table table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Название</th>
+          <th>Значение</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of itemList">
+          <td>{{ item.id }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.value }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

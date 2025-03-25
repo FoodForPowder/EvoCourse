@@ -1,0 +1,22 @@
+<div *ngIf="itemDetails" class="item-detail">
+  <div class="item-detail__body">
+    <div class="item-detail__section">
+      <h3 class="item-detail__title">Описание</h3>
+      <p class="item-detail__text">
+        {{ itemDetails.fullDescription }}
+      </p>
+    </div>
+    <div
+      *ngIf="itemDetails.specifications.length > 0"
+      class="item-detail__section"
+    >
+      <h3 class="item-detail__title">Характеристики</h3>
+      <table class="item-detail__table table table-hover">
+        <tr *ngFor="let item of itemDetails.specifications">
+          <td>{{ item.name }}</td>
+          <td>{{ item.value }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
