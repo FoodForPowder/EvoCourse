@@ -1,3 +1,36 @@
-.main{
+
+.main__title{
+    text-align: center;
+}
+.main__map-container{
+    width: 100%;
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+.main__container{
     padding: 12px 10px;
+    width: 1200px;
+    margin: 0 auto;
+}
+.main__map{
+    height: 500px;
+            width: 100%;
+}
+.main__button {
+    display: block;
+    margin: 15px auto;
+    background-color: white;
+    color: black;
+    border: 1px solid #d1d5db;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    font-weight: 500;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    transition: background-color 0.2s;
+}
+
+.main__button:hover {
+    background-color: #f3f4f6;
 }
