@@ -1,0 +1,21 @@
+.container {
+    width: 1200px;
+    padding: 0 12px;
+    margin: 0 auto;
+}
+.title {
+    margin: 15px 0;
+}
+.body {
+    display: flex;
+    flex-wrap: wrap;
+    gap:15px 10px;
+}
+.card-text__green {
+    color: #2ecc71;  /* Яркий зеленый */
+    font-weight: 500;
+  }
+.card-text__red {
+    color: #e74c3c;  /* Яркий красный */
+    font-weight: 500;
+  }

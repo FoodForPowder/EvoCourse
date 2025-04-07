@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Task } from '../models/task.interface';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -26,5 +27,15 @@ export class ResponseService {
     },
   ];
   constructor() {}
-  
+  public GetTasks(): Observable<Task[]> {
+    return of(this.tasks);
+  }
+
+  public ToggleTask(taskId: number): void {
+    const taskIndex = this.tasks.findIndex((task) => task.id === taskId);
+
+    if (taskIndex !== -1) {
+      this.tasks[taskIndex].completed = !this.tasks[taskIndex].completed;
+    }
+  }
 }
