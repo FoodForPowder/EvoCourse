@@ -1,0 +1,55 @@
+<form [formGroup]="bookform" class="mb-3" (ngSubmit)="addBook()">
+  <label for="title">Название</label>
+  <input
+    type="text"
+    class="form-control"
+    id="title"
+    formControlName="title"
+    [ngClass]="{
+      'is-invalid':
+        bookform.get('title')?.invalid && bookform.get('title')?.touched
+    }"
+  />
+  <div
+    *ngIf="bookform.get('title')?.errors?.['required'] && bookform.get('title')?.touched"
+    class="invalid-feedback"
+  >
+    Поле обязательно для заполнения
+  </div>
+  <div
+    *ngIf="bookform.get('title')?.errors?.['onlyRusLetter'] && bookform.get('title')?.touched"
+    class="invalid-feedback"
+  >
+    Поле должно содержать только русские буквы, без пробелов, без цифр, без спец. символов
+  </div>
+  <label for="author">Автор</label>
+  <input
+    type="text"
+    class="form-control"
+    id="author"
+    formControlName="author"
+    [ngClass]="{
+      'is-invalid':
+        bookform.get('author')?.invalid && bookform.get('author')?.touched
+    }"
+  />
+  <div
+    *ngIf="bookform.get('author')?.errors?.['required'] && bookform.get('author')?.touched"
+    class="invalid-feedback"
+  >
+    Поле обязательно для заполнения
+  </div>
+  <div
+    *ngIf="bookform.get('author')?.errors?.['onlyRusLetter'] && bookform.get('author')?.touched"
+    class="invalid-feedback"
+  >
+    Поле должно содержать только русские буквы, без пробелов, без цифр, без спец. символов
+  </div>
+  <button
+    type="submit"
+    [disabled]="bookform.invalid"
+    class="btn btn-primary mt-3"
+  >
+    Добавить
+  </button>
+</form>
