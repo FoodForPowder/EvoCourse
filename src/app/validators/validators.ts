@@ -1,7 +1,7 @@
 import { AbstractControl } from '@angular/forms';
 
 export function onlyRusLetterValidator(c: AbstractControl) {
-  let ONLYRUSREGEX = /^[а-яА-ЯёЁ\s]+$/;
+  const ONLYRUSREGEX = /^[а-яА-ЯёЁ]+$/;
   return ONLYRUSREGEX.test(c.value)
     ? null
     : {
