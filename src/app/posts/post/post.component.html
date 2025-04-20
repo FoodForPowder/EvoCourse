@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <ng-container *ngIf="!isEdtit; else edit">
+        <h5 class="card-title">
+          {{ post?.title }}
+        </h5>
+        <p class="card-text">{{ post?.body }}</p>
+        <button class="btn btn-primary" (click)="isEdtit = true">Edit</button>
+      </ng-container>
+    </div>
+  </div>
+  <ng-template #edit>
+    <form (ngSubmit)="isEdtit = false">
+      <div class="mt-3">
+        <label for="title" class="form-label">Title</label>
+        <input
+          name="title"
+          class="form-control"
+          [(ngModel)]="post!.title"
+          type="text"
+        />
+        <div class="mt-3">
+          <label for="body" class="form-label">body</label>
+          <textarea
+            name="body"
+            class="form-control"
+            [(ngModel)]="post!.body"
+            rows="3"
+          ></textarea>
+        </div>
+        <button class="btn btn-primary mt-3" type="submit">Save</button>
+      </div>
+    </form>
+  </ng-template>
+</div>
