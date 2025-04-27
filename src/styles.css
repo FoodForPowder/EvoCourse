@@ -73,9 +73,14 @@ a:visited {
 a:hover {
     text-decoration: none;
 }
-
+a{
+    color:inherit
+}
 ul li {
     list-style: none;
+    margin-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
 }
 
 img {
@@ -95,4 +100,32 @@ h6 {
 /*--------------------*/
 body {
     font-family: Inter;
+}
+.container{
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 15px;
+    overflow: hidden;
+}
+.wrapper{
+    min-height: 100%;
+	overflow: hidden;
+
+	display: flex;
+	flex-direction: column;
+}
+.content{
+    flex: 1 1 auto;
+}
+.button {
+    background: #3A3395;
+    border-radius: 8px;
+    padding: 9px 18.5px;
+    color:#FFFFFF;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: calc(14 / 20 * 100%);
+    
+
+
 }

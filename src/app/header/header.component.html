@@ -1,0 +1,53 @@
+<div class="header">
+  <div class="header__container container">
+    <div class="header__row">
+      <div class="header__logo">
+        <img src="../assets/img/Logo.svg" alt="Logo" />
+      </div>
+      <ul class="header__menu menu-header">
+        <li class="menu-header__item">
+          <a routerLink="" class="menu-header__link">Главная</a>
+        </li>
+        <li class="menu-header__item">
+          <a routerLink="" class="menu-header__link">Каталог рецептов</a>
+        </li>
+      </ul>
+      <div class="header__auth">
+        <ng-container *ngIf="!isAuthorized; else authorizedView">
+          <a routerLink="authorization" class="header__button button"
+            >Вход в аккаунт</a
+          >
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #authorizedView>
+  <div class="header__user-info user-info">
+    <div class="user-info__icon icon">
+      <img src="../assets/icons/edit.svg" alt="edit" />
+    </div>
+    <div class="user-info__info" data-bs-toggle="dropdown">
+      <div class="user-info__img">
+        <img src="../assets/img/user.jpg" alt="user" />
+      </div>
+      <div class="user-info__about">
+        <div class="user-info__name">Имя Фамилия</div>
+        <div class="user-info__role">{{ role }}</div>
+      </div>
+    </div>
+    <ul class="dropdown-menu user-info__dropdown">
+      <li class="user-info__item user-info__item_dark">
+        Вы вошли как <br />
+        username
+      </li>
+      <li class="user-info__item"><a routerLink="#">Настройки аккаунта</a></li>
+      <li *ngIf="isAdmin" class="user-info__item">
+        <a routerLink="admin">Администрирование</a>
+      </li>
+      <li class="user-info__item user-info__item_red">
+        <a href="">Выход</a>
+      </li>
+    </ul>
+  </div>
+</ng-template>
