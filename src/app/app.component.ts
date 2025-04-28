@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthStoreService } from './services/auth-store.service';
+import { UserStoreService } from './services/auth-store.service';
 import { Roles } from './enums/roles.enum';
 
 @Component({
@@ -9,6 +9,4 @@ import { Roles } from './enums/roles.enum';
 })
 export class AppComponent {
   title = 'EvoCourse';
-  
-
 }

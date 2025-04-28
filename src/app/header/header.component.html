@@ -13,7 +13,7 @@
         </li>
       </ul>
       <div class="header__auth">
-        <ng-container *ngIf="!isAuthorized; else authorizedView">
+        <ng-container *ngIf="!isAuthorized(); else authorizedView">
           <a routerLink="authorization" class="header__button button"
             >Вход в аккаунт</a
           >
@@ -29,24 +29,28 @@
     </div>
     <div class="user-info__info" data-bs-toggle="dropdown">
       <div class="user-info__img">
-        <img src="../assets/img/user.jpg" alt="user" />
+        <img [src]="user.avatar" alt="user" />
       </div>
       <div class="user-info__about">
-        <div class="user-info__name">Имя Фамилия</div>
-        <div class="user-info__role">{{ role }}</div>
+        <div class="user-info__name">
+          {{ user.firstName + " " + user.lastName }}
+        </div>
+        <div class="user-info__role">{{ user.role | role }}</div>
       </div>
     </div>
     <ul class="dropdown-menu user-info__dropdown">
       <li class="user-info__item user-info__item_dark">
-        Вы вошли как <br />
-        username
+        Вы вошли как
+        <br />
+        <br />
+        {{ user.username }}
       </li>
       <li class="user-info__item"><a routerLink="#">Настройки аккаунта</a></li>
       <li *ngIf="isAdmin" class="user-info__item">
         <a routerLink="admin">Администрирование</a>
       </li>
       <li class="user-info__item user-info__item_red">
-        <a href="">Выход</a>
+        <a  (click)="logout()">Выход</a>
       </li>
     </ul>
   </div>

@@ -1,11 +1,6 @@
-import { Roles } from 'src/app/enums/roles.enum';
+import { User } from 'src/app/models/user';
 
-export interface AuthenticationInterface {
-  username: string | null;
-  jwtToken: string | null;
-  Role: Roles;
-}
 export class AuthUpdate {
   static readonly type = '[Auth]: Auth update';
-  constructor(public payload: AuthenticationInterface) {}
+  constructor(public payload: User) {}
 }

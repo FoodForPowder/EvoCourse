@@ -1,0 +1,67 @@
+<div class="auth">
+  <div class="auth__container container">
+    <h1 class="auth__title">Войдите в ваш аккаунт</h1>
+    <form
+      [formGroup]="authForm"
+      (ngSubmit)="submit()"
+      class="auth__form form-auth"
+    >
+      <div class="form-auth__group mb-4">
+        <label for="login" class="form-auth__label form-label">Логин</label>
+        <input
+          type="text"
+          id="login"
+          class="form-auth__input form-control"
+          placeholder="Введите логин"
+          formControlName="login"
+          [ngClass]="{
+            'is-invalid':
+              authForm.get('login')?.invalid && authForm.get('login')?.touched
+          }"
+        />
+      </div>
+      <div class="form-auth__group mb-4">
+        <label for="password" class="form-auth__label form-label">Пароль</label>
+        <input
+          type="text"
+          id="password"
+          class="form-auth__input form-control is-invalid"
+          placeholder="Введите пароль"
+          formControlName="password"
+          [ngClass]="{
+            'is-invalid':
+              authForm.get('password')?.invalid &&
+              authForm.get('password')?.touched
+          }"
+        />
+      </div>
+      <div class="form-auth__block mb-4">
+        <input
+          type="checkbox"
+          id="isFastJwt"
+          class="form-auth__checkbox form-check-input"
+          formControlName="isFastJwt"
+        />
+        <label
+          for="isFastJwt"
+          class="form-auth__label form-auth__label_dark form-check-label"
+          >Быстрая сессия</label
+        >
+        <a routerLink="registration" class="form-auth__link"
+          >Зарегистрироваться</a
+        >
+      </div>
+      <button
+        type="submit"
+        class="auth-form__button button button_full-width mb-4"
+        [disabled]="!authForm.valid"
+      >
+        Вход
+      </button>
+      <div class="form-auth__text mb-4">Или войти через</div>
+      <button class="auth-form__social-button button button_full-width">
+        <img src="../assets/icons/github.svg" alt="github" />
+      </button>
+    </form>
+  </div>
+</div>

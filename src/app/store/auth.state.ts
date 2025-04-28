@@ -1,39 +1,45 @@
 import { Injectable } from '@angular/core';
-import { AuthenticationInterface, AuthUpdate } from './model/auth.model';
 import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { Roles } from '../enums/roles.enum';
+import { User } from '../models/user';
+import { AuthUpdate } from './model/auth.model';
 
-@State<AuthenticationInterface>({
+@State<User>({
   name: 'AuthState',
   defaults: {
-    username: null,
-    jwtToken: null,
-    Role: Roles.Guest,
+    id: '',
+    role: Roles.Guest, 
+    firstName: '',
+    lastName: '',
+    middleName: '',
+    avatar: '',
+    username: '',
+    jwtToken: '',
+    expiresIn: 0,
   },
 })
 @Injectable()
 export class AuthState {
   @Selector()
-  static getToken(state: AuthenticationInterface): string | null {
+  static getToken(state: User): string | null {
     return state.jwtToken;
   }
   @Selector()
-  static getAuthState(state: AuthenticationInterface): AuthenticationInterface {
+  static getAuthState(state: User): User {
     return state;
   }
   @Action(AuthUpdate)
-  updateAuthModel(
-    ctx: StateContext<AuthenticationInterface>,
-    action: AuthUpdate
-  ) {
+  updateAuthModel(ctx: StateContext<User>, action: AuthUpdate) {
     ctx.patchState({ ...action.payload });
   }
   @Action(AuthUpdate)
-  updateToken(ctx: StateContext<AuthenticationInterface>, jwtToken: string) {
+  updateToken(ctx: StateContext<User>, jwtToken: string) {
     const state = ctx.getState();
     ctx.patchState({
       ...state,
       jwtToken: jwtToken,
     });
   }
+
+
 }

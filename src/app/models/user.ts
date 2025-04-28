@@ -1,6 +1,8 @@
+import { Roles } from '../enums/roles.enum';
+
 export interface User {
   id: string;
-  role: string;
+  role: Roles;
   firstName: string;
   lastName: string;
   middleName: string;
