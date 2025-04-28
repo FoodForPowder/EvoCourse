@@ -5,6 +5,7 @@ import { environment } from '../environment/environment';
 import { Auth } from '../models/auth';
 import { catchError, Observable, tap, throwError } from 'rxjs';
 import { User } from '../models/user';
+import { Registration } from '../models/registration';
 
 @Injectable({
   providedIn: 'root',
@@ -23,10 +24,15 @@ export class AuthService {
       .pipe(
         tap((user: User) => {
           this.saveState(user);
-          
         }),
         catchError((error) => throwError(() => error))
       );
+  }
+  registration(registration: Registration): Observable<Registration> {
+    return this.http.post<Registration>(
+      `${this.apiUrl}/users/registration`,
+      registration
+    );
   }
   logout() {
     this.authStoreService.clearUser();

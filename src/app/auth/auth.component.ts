@@ -39,7 +39,7 @@ export class AuthComponent {
       this.auth.password = this.authForm.get('password')?.value;
       this.isFastJwt = this.authForm.get('isFastJwt')?.value;
       this.authService.login(this.auth, this.isFastJwt).subscribe({
-        next: (user) => {
+        next: () => {
           this.toastr.success('Успешно');
         },
         error: (error) => {

@@ -46,11 +46,11 @@
         {{ user.username }}
       </li>
       <li class="user-info__item"><a routerLink="#">Настройки аккаунта</a></li>
-      <li *ngIf="isAdmin" class="user-info__item">
+      <li *ngIf="isAdmin()" class="user-info__item">
         <a routerLink="admin">Администрирование</a>
       </li>
       <li class="user-info__item user-info__item_red">
-        <a  (click)="logout()">Выход</a>
+        <a (click)="logout()">Выход</a>
       </li>
     </ul>
   </div>

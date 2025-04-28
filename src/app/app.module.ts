@@ -15,9 +15,17 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 import { RolePipe } from './pipes/role.pipe';
+import { RegistrationComponent } from './registration/registration.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, AuthComponent, RolePipe],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    AuthComponent,
+    RolePipe,
+    RegistrationComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

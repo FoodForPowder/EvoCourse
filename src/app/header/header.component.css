@@ -67,9 +67,9 @@ color: #909090;
 margin: 4px 0 0 0;
 }
 .user-info__item:hover{
-    
+    background: #F3F4F6;
 }
-
+    
 .user-info__dropdown {   
     background: #FFFFFF;
     border-radius: 6px;

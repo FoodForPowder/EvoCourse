@@ -1,0 +1,27 @@
+
+.registration__container {
+    max-width: 483px;
+    margin: 0 auto;
+}
+.registration__title {
+margin: 99px 0 0 0;
+font-weight: 800;
+font-size: 30px;
+line-height: calc(36 / 30 * 100%);
+
+
+}
+
+.form-registration {
+    padding: 56px 40px 40px 37px;
+    box-shadow: 0px 1px 2px 0px #0000000F;
+    box-shadow: 0px 1px 3px 0px #0000001A;
+}
+
+.form-registration__label {
+    font-weight: 500;
+font-size: 14px;
+line-height: calc(14 / 20 * 100%);
+color:#374151
+}
+
