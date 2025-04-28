@@ -17,6 +17,7 @@ import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 import { RolePipe } from './pipes/role.pipe';
 import { RegistrationComponent } from './registration/registration.component';
 import { RouterModule } from '@angular/router';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { RouterModule } from '@angular/router';
     AuthComponent,
     RolePipe,
     RegistrationComponent,
+    MainComponent,
   ],
   imports: [
     BrowserModule,
