@@ -1,0 +1,19 @@
+<div class="error">
+  <div class="error__container container">
+    <div class="error__content">
+      <div class="error__status-code">{{ statusCodeText + ' ошибка' }}</div>
+      <div class="error__title">{{ titleText }}</div>
+      <div class="error__text">{{ text }}</div>
+      <div class="error__actions">
+        <a class="error__action" (click)="goBack()">Назад →</a>
+        <a class="error__action" [routerLink]="['/']">На главную →</a>
+      </div>
+    </div>
+    <div class="error__img">
+      <img
+        src="https://evo-academy.wckz.dev/assets/image/image_404.png"
+        alt="Изображение"
+      />
+    </div>
+  </div>
+</div>

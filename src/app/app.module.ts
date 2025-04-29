@@ -33,6 +33,7 @@ import { FooterComponent } from './footer/footer.component';
 import { PostComponent } from './post/post.component';
 import { FormsModule } from '@angular/forms';
 import { TokenInterceptor } from './interceptors/token.interceptor';
+import { ErrorComponent } from './error/error.component';
 registerLocaleData(localeRu, 'ru');
 
 @NgModule({
@@ -52,6 +53,7 @@ registerLocaleData(localeRu, 'ru');
     NotifyComponent,
     FooterComponent,
     PostComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,
