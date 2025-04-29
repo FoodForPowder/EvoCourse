@@ -2,12 +2,11 @@
 .main{
     position:relative;
 }
-.main__container > :nth-child(n) {
-    margin:  0 0 150px 0;
+.main__container >:not(:first-child) {
+    margin: 0 0 150px 0;
 }
 .main__carousel {
-    margin: 100px 80px 0px 80px;
-    
+    margin: 100px 80px 150px 80px;   
 }
 .main__best{
     position: relative;
