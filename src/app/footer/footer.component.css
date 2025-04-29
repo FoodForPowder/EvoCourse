@@ -29,9 +29,7 @@ line-height: calc(24 / 16 * 100%);
     padding: 0 0 0 0;
     margin:  0 0 0 0;
 }
-.footer__menu-item {
-    
-}
+
 .footer__link {
     cursor: pointer;
 }

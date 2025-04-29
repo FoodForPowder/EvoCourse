@@ -2,7 +2,7 @@ import { Observable } from 'rxjs';
 import { AuthState } from './../store/auth.state';
 import { Injectable } from '@angular/core';
 import { Select, Store } from '@ngxs/store';
-import { AuthUpdate } from '../store/model/auth.model';
+import { AuthUpdate, UpdateToken } from '../store/model/auth.model';
 import { User } from '../models/user';
 import { Roles } from '../enums/roles.enum';
 
@@ -20,7 +20,7 @@ export class UserStoreService {
   }
 
   updateToken(token: string): void {
-    this.store.dispatch(token);
+    this.store.dispatch(new UpdateToken(token));
   }
   clearUser(): void {
     this.store.dispatch(

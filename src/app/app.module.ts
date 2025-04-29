@@ -12,7 +12,7 @@ import { HeaderComponent } from './header/header.component';
 import { AuthState } from './store/auth.state';
 import { AuthComponent } from './auth/auth.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 import { RolePipe } from './pipes/role.pipe';
 import { RegistrationComponent } from './registration/registration.component';
@@ -30,7 +30,9 @@ import { MailingComponent } from './main/mailing/mailing.component';
 import { NotifyState } from './store/notify.state';
 import { NotifyComponent } from './main/notify/notify.component';
 import { FooterComponent } from './footer/footer.component';
-
+import { PostComponent } from './post/post.component';
+import { FormsModule } from '@angular/forms';
+import { TokenInterceptor } from './interceptors/token.interceptor';
 registerLocaleData(localeRu, 'ru');
 
 @NgModule({
@@ -49,6 +51,7 @@ registerLocaleData(localeRu, 'ru');
     MailingComponent,
     NotifyComponent,
     FooterComponent,
+    PostComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,6 +60,7 @@ registerLocaleData(localeRu, 'ru');
     ToastrModule.forRoot({
       timeOut: 5000,
       positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
     }),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot(),
@@ -67,8 +71,12 @@ registerLocaleData(localeRu, 'ru');
     FontAwesomeModule,
     ReactiveFormsModule,
     HttpClientModule,
+    FormsModule,
   ],
-  providers: [{ provide: LOCALE_ID, useValue: 'ru' }],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'ru' },
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

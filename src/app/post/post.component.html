@@ -1,0 +1,414 @@
+<div *ngIf="post" class="post">
+  <div class="post__container container">
+    <div class="post__header">
+      <div class="post__about">
+        <h1 class="post__title">{{ post.title }}</h1>
+        <div class="post__badges">
+          <div class="post__user-info user-info">
+            <div class="user-info__img">
+              <img [src]="post.author.avatar" alt="avatar" />
+            </div>
+            <div class="user-info__about">
+              <div class="user-info__name">
+                {{ post.author.firstName + " " + post.author.lastName }}
+              </div>
+              <div class="user-info__date">
+                {{ post.createdOn | date : "d MMMM  y" : "GMT+3" : "ru-Ru" }}
+              </div>
+            </div>
+          </div>
+
+          <div class="post__badge badge">
+            <div class="badge__icon">
+              <img src="./assets/icons/Clock.svg" alt="Время приготовления" />
+            </div>
+            <div class="badge__text">
+              <span class="badge__text-title">ВРЕМЯ ПРИГОТОВЛЕНИЯ</span>
+              <span class="badge__text-content">{{
+                post.timeCooking + " минут"
+              }}</span>
+            </div>
+          </div>
+          <div class="post__badge badge">
+            <div class="badge__icon">
+              <img src="./assets/icons/ForkKnife.svg" alt="Категория" />
+            </div>
+            <div class="badge__text">
+              {{ post.tags.join(", ") }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="post__actions">
+        <div class="post__action">
+          <button (click)="printPage()" class="post__action-button">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M5.99988 9V2H17.9999V9"
+                stroke="black"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M5.99988 18H3.99988C3.46944 18 2.96074 17.7893 2.58566 17.4142C2.21059 17.0391 1.99988 16.5304 1.99988 16V11C1.99988 10.4696 2.21059 9.96086 2.58566 9.58579C2.96074 9.21071 3.46944 9 3.99988 9H19.9999C20.5303 9 21.039 9.21071 21.4141 9.58579C21.7892 9.96086 21.9999 10.4696 21.9999 11V16C21.9999 16.5304 21.7892 17.0391 21.4141 17.4142C21.039 17.7893 20.5303 18 19.9999 18H17.9999"
+                stroke="black"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M17.9999 14H5.99988V22H17.9999V14Z"
+                stroke="black"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+          <div class="post__action__text">РАСПЕЧАТАТЬ</div>
+        </div>
+        <div class="post__action">
+          <button class="post__action-button">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4 12V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V12"
+                stroke="black"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M16 6L12 2L8 6"
+                stroke="black"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M12 2V15"
+                stroke="black"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+          <div class="post__action__text">ПОДЕЛИТЬСЯ</div>
+        </div>
+      </div>
+    </div>
+    <div class="post__info">
+      <div class="post__info-container">
+        <div class="post__info-img">
+          <img [src]="post.image" alt="Изображение блюда" />
+        </div>
+
+        <div class="post__info-bju">
+          <div class="post__info-title">Пищевая ценность</div>
+          <div class="post__info-item item-info">
+            <div class="item-info__title">Калории</div>
+            <div class="item-info__value">
+              {{
+                (post.foodValue.calories | number : "1.1-1" : "en-US") + " ккал"
+              }}
+            </div>
+          </div>
+          <div class="post__info-item item-info">
+            <div class="item-info__title">Жиры</div>
+            <div class="item-info__value">
+              {{ (post.foodValue.fats | number : "1.1-1" : "en-US") + " г" }}
+            </div>
+          </div>
+          <div class="post__info-item item-info">
+            <div class="item-info__title">Углеводы</div>
+            <div class="item-info__value">
+              {{
+                (post.foodValue.carbohydrates | number : "1.1-1" : "en-US") +
+                  " г"
+              }}
+            </div>
+          </div>
+          <div class="post__info-item item-info">
+            <div class="item-info__title">Белки</div>
+            <div class="item-info__value">
+              {{
+                (post.foodValue.proteins | number : "1.1-1" : "en-US") + " г"
+              }}
+            </div>
+          </div>
+          <div class="post__info-disclaimer">Значения приблизительные</div>
+        </div>
+      </div>
+      <div class="post__info-body">
+        {{ post.body }}
+      </div>
+    </div>
+    <div class="post__body">
+      <div class="post__column">
+        <div class="post__ingredients">
+          <h3 class="post__subtitle">Ингредиенты</h3>
+          <div class="post__ingredients-body">
+            <h3 class="post__ingredients-title">Что вам пригодиться</h3>
+            <div
+              *ngFor="let item of post.ingredients"
+              class="post__ingredients__row"
+            >
+              <button
+                (click)="onCheckBtnClick(item.title)"
+                class="post__icon-btn"
+              >
+                <ng-container *ngIf="isItemChecked(item.title); else unchecked">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle cx="12" cy="12" r="12" fill="#3D9A25" />
+                    <path
+                      d="M7 11L11 15L17 9"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </ng-container>
+
+                <ng-template #unchecked>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle cx="12" cy="12" r="11.5" stroke="#DBE2E5" />
+                  </svg>
+                </ng-template>
+              </button>
+              <div
+                class="post__ingredients__text"
+                [ngClass]="{
+                  post__text_checked: isItemChecked(item.title)
+                }"
+              >
+                {{
+                  item.title +
+                    (item.description.length > 0
+                      ? " (" + item.description + ")"
+                      : "")
+                }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="post__steps">
+          <h3 class="post__subtitle">Шаги приготовления</h3>
+          <div class="post__ingredients-body">
+            <div
+              *ngFor="let item of post.cookingSteps; let i = index"
+              class="post__steps-row"
+            >
+              <button
+                (click)="onCheckBtnClick(item.title)"
+                class="post__icon-btn"
+              >
+                <ng-container *ngIf="isItemChecked(item.title); else unchecked">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle cx="12" cy="12" r="12" fill="#3D9A25" />
+                    <path
+                      d="M7 11L11 15L17 9"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </ng-container>
+
+                <ng-template #unchecked>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle cx="12" cy="12" r="11.5" stroke="#DBE2E5" />
+                  </svg>
+                </ng-template>
+              </button>
+              <div class="post__step-body">
+                <div class="post__step-title">
+                  <span
+                    class="post__step-index"
+                    [ngClass]="{
+                      'post__text_checked_no-line': isItemChecked(item.title)
+                    }"
+                  >
+                    {{ i + 1 + ". " + " " }}
+                  </span>
+                  <span
+                    class="post__step-title-text"
+                    [ngClass]="{
+                      post__text_checked: isItemChecked(item.title)
+                    }"
+                  >
+                    {{ item.title }}
+                  </span>
+                </div>
+                <div
+                  class="post__step-description"
+                  [ngClass]="{
+                    post__text_checked: isItemChecked(item.title)
+                  }"
+                >
+                  {{ item.description }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="post__column">
+        <div class="post__others">
+          <h3 class="post__others-title">Прочие рецепты</h3>
+          <a
+            *ngFor="let item of othersPost"
+            [routerLink]="['../', item.id]"
+            class="post__others-body"
+          >
+            <div class="post__others-item others-item">
+              <div class="others-item__img">
+                <img [src]="item.image" alt="Изображение блюда" />
+              </div>
+              <div class="others-item__body">
+                <div class="others-item__title">{{ item.title }}</div>
+                <div class="others-item__author">
+                  {{
+                    "От " + item.author.firstName + " " + item.author.lastName
+                  }}
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="post__taste-block">
+      <app-taste-block
+        [Posts]="tastePost"
+        [Title]="'Возможно вам понравятся эти рецепты'"
+      ></app-taste-block>
+    </div>
+    <div class="post__comments">
+      <h3 class="post__subtitle">Комментарии</h3>
+      <ng-container
+        *ngIf="post.comments && post.comments.length > 0; else noComments"
+      >
+        <div class="post__comments-body">
+          <div
+            *ngFor="let comment of post.comments"
+            class="post__coments-card card-comment"
+          >
+            <div class="card-comment__image">
+              <img [src]="comment.user.avatar" alt="Изображение автора" />
+            </div>
+            <div class="card-comment__content">
+              <div class="card-comment__name">
+                {{ comment.user.firstName + " " + comment.user.lastName }}
+              </div>
+              <div class="card-comment__date">
+                {{ comment.createdOn | date : "d.MM.y hh:mm" : "GMT+3" }}
+              </div>
+              <div class="card-comment__text">
+                {{ comment.text }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+      <div class="post__comments-add add-comment">
+        <div class="add-comment__title">Ваш комментарий</div>
+        <div class="form-floating add-comment__area">
+          <textarea
+            class="form-control add-comment__text"
+            id="textarea"
+            [(ngModel)]="comment"
+            #area="ngModel"
+            required
+          ></textarea>
+          <button
+            [disabled]="!area.valid"
+            class="add-comment__button"
+            (click)="addComment()"
+          >
+            <svg
+              width="14"
+              height="10"
+              viewBox="0 0 14 10"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0.602376 1.70715L6.99997 4.90555L13.3976 1.70715C13.3739 1.29951 13.1952 0.916342 12.8982 0.636133C12.6012 0.355924 12.2083 0.199876 11.8 0.199951H2.19998C1.79164 0.199876 1.39873 0.355924 1.10172 0.636133C0.804702 0.916342 0.626059 1.29951 0.602376 1.70715Z"
+                fill="#6366F1"
+              />
+              <path
+                d="M13.4 3.49435L6.99997 6.69435L0.599976 3.49435V8.19995C0.599976 8.6243 0.768546 9.03127 1.0686 9.33132C1.36866 9.63138 1.77563 9.79995 2.19998 9.79995H11.8C12.2243 9.79995 12.6313 9.63138 12.9313 9.33132C13.2314 9.03127 13.4 8.6243 13.4 8.19995V3.49435Z"
+                fill="#6366F1"
+              />
+            </svg>
+            <div class="add-comment__button-text">Отправить</div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #noComments>
+  <div class="post__comments-empty">
+    <div class="post__comments-empty-icon">
+      <svg
+        width="48"
+        height="48"
+        viewBox="0 0 48 48"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M40 8H8C6.93913 8 5.92172 8.42143 5.17157 9.17157C4.42143 9.92172 4 10.9391 4 12V32C4 33.0609 4.42143 34.0783 5.17157 34.8284C5.92172 35.5786 6.93913 36 8 36H14V44L26 36H40C41.0609 36 42.0783 35.5786 42.8284 34.8284C43.5786 34.0783 44 33.0609 44 32V12C44 10.9391 43.5786 9.92172 42.8284 9.17157C42.0783 8.42143 41.0609 8 40 8Z"
+          stroke="#D1D5DB"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </div>
+    <div class="post__comments-empty-title">Ещё нет комментариев</div>
+    <div class="post__comments-empty-text">
+      Будьте первым, кто оставит комментарий к этому рецепту!
+    </div>
+  </div>
+</ng-template>

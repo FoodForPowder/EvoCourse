@@ -179,6 +179,32 @@ body {
 font-weight: 500;
 font-size: 14px;
 line-height: calc(14 / 14 * 100%);
-color:#00000099;
+color: #00000099;
+
+}
+.user-info {
+    display: flex;
+    gap:16px;
+    align-items: center;
+}
+
+.user-info__img img{
+width: 50px;
+height: 50px;
+border-radius: 50%;
+}
+
+.user-info__name {
+font-weight: 700;
+font-size: 16px;
+line-height: 100%;
+
+
+}
+.user-info__date {
+    margin: 8px 0 0 0;
+font-weight: 500;
+font-size: 14px;
+line-height: 100%;
 
 }

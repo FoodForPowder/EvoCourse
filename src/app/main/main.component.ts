@@ -1,6 +1,6 @@
 import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { PostsService } from '../services/posts.service';
-import { Title } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';
 import { Post } from '../models/post';
 import { IndividualConfig, ToastrService } from 'ngx-toastr';
 import { map, Observable } from 'rxjs';
@@ -20,9 +20,14 @@ export class MainComponent implements OnInit {
     private postService: PostsService,
     private title: Title,
     private toasts: ToastrService,
-    private notify: NotifyStoreService
+    private notify: NotifyStoreService,
+    private meta: Meta
   ) {
     this.title.setTitle('Foodie: Главная»');
+    this.meta.addTag({
+      name: 'description',
+      content: 'Сборник кулинарных рецептов, для всей семьи',
+    });
   }
   ngOnInit(): void {
     this.postService.getPosts(3).subscribe({
@@ -34,7 +39,7 @@ export class MainComponent implements OnInit {
         this.toasts.error('Попробуйте позже', 'Произошла ошибка');
       },
     });
-    this.getRandomPosts(6).subscribe({
+    this.postService.getRandomPosts(6).subscribe({
       next: (data) => {
         this.toasts.success('Успешно');
         this.bestPosts = data;
@@ -43,7 +48,7 @@ export class MainComponent implements OnInit {
         this.toasts.error('Попробуйте позже', 'Произошла ошибка');
       },
     });
-    this.getRandomPosts(4).subscribe({
+    this.postService.getRandomPosts(4).subscribe({
       next: (data) => {
         this.toasts.success('Успешно');
         this.testeItPosts = data;
@@ -53,19 +58,9 @@ export class MainComponent implements OnInit {
       },
     });
     this.notify.isNotify$.subscribe({
-      next:(isNotify) =>{
-        this.isNotify = isNotify
-      }
+      next: (isNotify) => {
+        this.isNotify = isNotify;
+      },
     });
-  }
-  getRandomPosts(count: number): Observable<Post[]> {
-    return this.postService.getPosts().pipe(
-      map((data) => {
-        return [...data]
-          .filter((value) => value.title !== 'Тестовый рецепт')
-          .sort(() => Math.random() - 0.5)
-          .slice(0, count);
-      })
-    );
   }
 }

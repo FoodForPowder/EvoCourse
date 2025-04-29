@@ -42,8 +42,7 @@
             </div>
             <div class="carousel-item__row">
               <div
-                class="carousel-item__user-info user-info"
-                data-bs-toggle="dropdown"
+                class="carousel-item__user-info user-info"               
               >
                 <div class="user-info__img">
                   <img [src]="item.author.avatar" alt="avatar" />
@@ -60,7 +59,7 @@
                 </div>
               </div>
               <a
-                [routerLink]="['recrecipes', item.id]"
+                [routerLink]="['recipes', item.id]"
                 class="carousel-item__button button"
               >
                 <span class="button__text"> Посмотреть</span>

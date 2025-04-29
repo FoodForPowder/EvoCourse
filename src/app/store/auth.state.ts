@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { Roles } from '../enums/roles.enum';
 import { User } from '../models/user';
-import { AuthUpdate } from './model/auth.model';
+import { AuthUpdate, UpdateToken } from './model/auth.model';
 
 @State<User>({
   name: 'AuthState',
   defaults: {
     id: '',
-    role: Roles.Guest, 
+    role: Roles.Guest,
     firstName: '',
     lastName: '',
     middleName: '',
@@ -32,14 +32,12 @@ export class AuthState {
   updateAuthModel(ctx: StateContext<User>, action: AuthUpdate) {
     ctx.patchState({ ...action.payload });
   }
-  @Action(AuthUpdate)
-  updateToken(ctx: StateContext<User>, jwtToken: string) {
+  @Action(UpdateToken)
+  updateToken(ctx: StateContext<User>, action: UpdateToken) {
     const state = ctx.getState();
     ctx.patchState({
       ...state,
-      jwtToken: jwtToken,
+      jwtToken: action.token,
     });
   }
-
-
 }
