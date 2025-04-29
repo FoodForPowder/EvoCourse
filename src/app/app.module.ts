@@ -29,6 +29,7 @@ import { AboutComponent } from './main/about/about.component';
 import { MailingComponent } from './main/mailing/mailing.component';
 import { NotifyState } from './store/notify.state';
 import { NotifyComponent } from './main/notify/notify.component';
+import { FooterComponent } from './footer/footer.component';
 
 registerLocaleData(localeRu, 'ru');
 
@@ -47,6 +48,7 @@ registerLocaleData(localeRu, 'ru');
     AboutComponent,
     MailingComponent,
     NotifyComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,7 +62,7 @@ registerLocaleData(localeRu, 'ru');
     NgxsLoggerPluginModule.forRoot(),
     NgxsModule.forRoot([AuthState, LikedPostState, NotifyState]),
     NgxsStoragePluginModule.forRoot({
-      key: ['AuthState', 'LikedPosts'],
+      key: ['AuthState', 'LikedPosts', 'Notify'],
     }),
     FontAwesomeModule,
     ReactiveFormsModule,

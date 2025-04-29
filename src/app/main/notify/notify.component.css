@@ -1,8 +1,11 @@
 .notify {
-    position: absolute;
+    position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; 
     background-color: #3A3395;
     width: 100vw;
-    bottom: 0;
 }
 .notify__container{
     min-height: 64px;
