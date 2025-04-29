@@ -1,0 +1,31 @@
+.notify {
+    position: absolute;
+    background-color: #3A3395;
+    width: 100vw;
+    bottom: 0;
+}
+.notify__container{
+    min-height: 64px;
+}
+.notify__body {
+    display: flex;
+    align-items: center;
+    padding: 12px 32px;
+    
+}
+.notify__icon {
+    margin-right: 20px;
+}
+.notify__text {
+    flex:1 0 auto;
+    font-family: Inter;
+font-weight: 500;
+font-size: 16px;
+line-height:calc(24 / 16 * 100%);
+color:#fff;
+
+
+}
+.notify__closed-btn {
+    background: unset;
+}

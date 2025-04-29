@@ -1,0 +1,21 @@
+<div class="best">
+  <h2 class="best__title">Лучшие рецепты</h2>
+  <h3 class="best__subtitle">
+    На нашем сайте вы найдете лучшие рецепты, которые помогут вам создавать
+    великолепные блюда и порадовать своих близких и гостей своим кулинарным
+    мастерством.
+  </h3>
+  <div class="best__container">
+    <app-best-card
+      *ngFor="let item of bestPosts.slice(0, 3 * (1 + isMore))"
+      [post]="item"
+    ></app-best-card>
+  </div>
+  <button
+    class="best__button"
+    (click)="moreButtonClicked()"
+    [hidden]="!!isMore"
+  >
+    Посмотреть еще
+  </button>
+</div>

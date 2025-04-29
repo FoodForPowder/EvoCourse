@@ -1,155 +1,92 @@
-.main {
-}
-.main__container {
-}
-.container {
-}
-.carousel {
-    background-color: #E7FAFE;
-    border-radius: 20px;
-    margin: 0 80px;
-    position: relative;
-}
 
+.main{
+    position:relative;
+}
+.main__container > :nth-child(n) {
+    margin:  0 0 150px 0;
+}
 .main__carousel {
-    margin: 100px 80px 150px 80px;
+    margin: 100px 80px 0px 80px;
+    
 }
-.carousel-inner {
+.main__best{
     position: relative;
+    padding:  0 0 113px 0;
+    border-bottom: 1px solid #D1D5DB;
+}
+
+.main__taste-block{   
+    padding:  0 0 150px 0;
+    border-bottom: 1px solid #D1D5DB;
+}
+
+.custom-toast-container {
+    background-color: #3A3395 !important;
+    border-radius: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 60px !important;
+    padding: 0 20px !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    color: white !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    opacity: 1 !important;
+  }
+  
+
+  .custom-toast-container .toast-title,
+  .custom-toast-container .toast-message {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+  }
+  
+
+  .store-notification-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
-    overflow: hidden;
-}
-.carousel-item {
-    display: none;
-}
-.carousel-item.active {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    align-items: center;
-}
-.carousel-item__column{
-    height: 100%;
-}
-.carousel-item .carousel-item__column:first-child
- {
-    padding: 45px 50px 50px 50px;
-}
-.carousel-item__title {
-
-font-weight: 600;
-font-size: 60px;
-line-height: calc(60 / 60 * 100%);
-
-}
-.carousel-item__text {
-}
-.carousel-item__about {
-    margin: 183px 0 0 0;
-}
-.carousel-item__about .carousel-item__row:not(:last-child){
-    margin-bottom: 35px;
-}
-.carousel-item__row {
-    display: flex;
-    align-items: center;
-
-}
-.carousel-item__row .carousel-item__badge:not(:last-child){
-    margin-right: 16px;
-}
-.carousel-item__badge {
-
-}
-.badge {
-    padding: 8px 24px 8px 16px;
-    border-radius: 30px;
-    background-color: #0000000D;
-    display: flex;
-    gap:10px;
-    align-items: center;
-}
-.badge__icon {
-
-}
-.badge__icon img{
-    height: 24px;
-    width: 24px;
-}
-.badge__text {
-    
-font-weight: 500;
-font-size: 14px;
-line-height: calc(14 / 14 * 100%);
-color:#00000099;
-
-}
-.carousel-item__user-info {
-    flex: 1 1 auto;
-}
-.user-info {
-    display: flex;
-    gap:16px;
-}
-
-.user-info__img img{
-width: 50px;
-height: 50px;
-border-radius: 50%;
-}
-.user-info__about {
-    
-}
-.user-info__name {
-font-weight: 700;
-font-size: 16px;
-line-height: 100%;
-
-
-}
-.user-info__date {
-    margin: 8px 0 0 0;
-font-weight: 500;
-font-size: 14px;
-line-height: 100%;
-
-
-}
-.carousel-item__button {
-
-    padding: 18px 36px;
-}
-
-.carousel-control-prev,
-.carousel-control-next {
-    height: 100%;
-    margin: 0 0 0 0;
-    background-color: #E6FAFE;
-    border-radius: 21px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    opacity: 1;
-    max-height: 550px;
-}
-
-.carousel-control-prev {
-    left: -248px;
-}
-
-.carousel-control-next {
-    right: -248px;
-}
-
-.carousel-control-prev:hover,
-.carousel-control-next:hover {
-    background-color: #d0f0f8;
-}
-
-.carousel-item__ibg{
-    
-   height: 100%;
-}
-.carousel-item__ibg img{
-    border-radius: 20px;
-}
+  }
+  
+  .notification-icon {
+    margin-right: 10px;
+  }
+  
+  .notification-text {
+    font-size: 16px;
+  }
+  
+ 
+  .custom-toast-container .toast-close-button {
+    position: absolute !important;
+    right: 20px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    color: white !important;
+    font-size: 20px !important;
+    opacity: 1 !important;
+  }
+  
+  
+  .toast-info {
+    background-image: none !important;
+  }
+  
+  
+  .toast-bottom-full-width {
+    bottom: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+  }
+  
+ 
+  .custom-toast-container .toast-message {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+  }

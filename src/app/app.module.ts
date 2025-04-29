@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +18,19 @@ import { RolePipe } from './pipes/role.pipe';
 import { RegistrationComponent } from './registration/registration.component';
 import { RouterModule } from '@angular/router';
 import { MainComponent } from './main/main.component';
+import { registerLocaleData } from '@angular/common';
+import localeRu from '@angular/common/locales/ru';
+import { CarouselComponent } from './main/carousel/carousel.component';
+import { BestPostsComponent } from './main/best-posts/best-posts.component';
+import { LikedPostState } from './store/post.state';
+import { BestCardComponent } from './best-card/best-card.component';
+import { TasteBlockComponent } from './main/taste-block/taste-block.component';
+import { AboutComponent } from './main/about/about.component';
+import { MailingComponent } from './main/mailing/mailing.component';
+import { NotifyState } from './store/notify.state';
+import { NotifyComponent } from './main/notify/notify.component';
+
+registerLocaleData(localeRu, 'ru');
 
 @NgModule({
   declarations: [
@@ -27,6 +40,13 @@ import { MainComponent } from './main/main.component';
     RolePipe,
     RegistrationComponent,
     MainComponent,
+    CarouselComponent,
+    BestPostsComponent,
+    BestCardComponent,
+    TasteBlockComponent,
+    AboutComponent,
+    MailingComponent,
+    NotifyComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,15 +58,15 @@ import { MainComponent } from './main/main.component';
     }),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot(),
-    NgxsModule.forRoot([AuthState]),
+    NgxsModule.forRoot([AuthState, LikedPostState, NotifyState]),
     NgxsStoragePluginModule.forRoot({
-      key: ['AuthState'],
+      key: ['AuthState', 'LikedPosts'],
     }),
     FontAwesomeModule,
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'ru' }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

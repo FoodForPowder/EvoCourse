@@ -1,90 +1,20 @@
 <div class="main">
   <div class="main__container container">
-    <div
-      id="receiptCarousel"
-      class="carousel slide main__carousel"
-      data-bs-ride="carousel"
-    >
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <div class="carousel-item__column">
-            <h2 class="carousel-item__title">Курица с томатным соусом</h2>
-            <span class="carousel-item__text"
-              >Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad
-              minim
-            </span>
-            <div class="carousel-item__about">
-              <div class="carousel-item__row">
-                <div class="carousel-item__badge badge">
-                  <div class="badge__icon">
-                    <img
-                      src="./assets/icons/Clock.svg"
-                      alt="Время приготовления"
-                    />
-                  </div>
-                  <div class="badge__text">30 Минут</div>
-                </div>
-                <div class="carousel-item__badge badge">
-                  <div class="badge__icon">
-                    <img src="./assets/icons/ForkKnife.svg" alt="Категория" />
-                  </div>
-                  <div class="badge__text">Курица</div>
-                </div>
-              </div>
-              <div class="carousel-item__row">
-                <div
-                  class="carousel-item__user-info user-info"
-                  data-bs-toggle="dropdown"
-                >
-                  <div class="user-info__img">
-                    <img src="./assets/img/user.jpg" alt="user" />
-                  </div>
-                  <div class="user-info__about">
-                    <div class="user-info__name">
-                      <!-- {{ user.firstName + " " + user.lastName }} -->
-                      John Smith
-                    </div>
-                    <div class="user-info__date">
-                      <!-- {{ user.role | role }} -->
-                      15 Октября 2022
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-item__button button">
-                  <span class="button__text"> Посмотреть</span>
-                  <div class="button__icon">
-                    <img src="./assets/icons/PlayCircle.svg" alt="Play" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item__column">
-            <div class="ibg carousel-item__ibg">
-              <img src="./assets/img/Example.jpg" alt="Example" />
-            </div>
-          </div>
-        </div>
-       
-      </div>
-
-      <button
-        class="carousel-control-prev"
-        type="button"
-        data-bs-target="#receiptCarousel"
-        data-bs-slide="prev"
-      >
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button
-        class="carousel-control-next"
-        type="button"
-        data-bs-target="#receiptCarousel"
-        data-bs-slide="next"
-      >
-        <span class="visually-hidden">Next</span>
-      </button>
+    <div class="main__carousel">
+      <app-carousel [sliderPost]="sliderPost"></app-carousel>
+    </div>
+    <div class="main__best">
+      <app-best-posts [bestPosts]="bestPosts"></app-best-posts>
+    </div>
+    <div class="main__taste-block">
+      <app-taste-block [Posts]="testeItPosts"></app-taste-block>
+    </div>
+    <div class="main__about">
+      <app-about></app-about>
+    </div>
+    <div class="main__mailing">
+      <app-mailing></app-mailing>
     </div>
   </div>
+  <app-notify *ngIf="isNotify"></app-notify>
 </div>

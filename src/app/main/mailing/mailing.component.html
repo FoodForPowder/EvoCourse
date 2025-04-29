@@ -1,0 +1,29 @@
+<div class="mailimg">
+  <div class="mailing__description">
+    <h1 class="mailimg__title">Хотите получать новые рецепты?</h1>
+    <span class="mailing__text">
+      Не пропустите ни одного вкусного рецепта! Подпишитесь на нашу рассылку,
+      чтобы получать новые кулинарные идеи и рецепты прямо в свою почту.
+    </span>
+  </div>
+  <form class="mailing__form" [formGroup]="mailingForm" (ngSubmit)="submit()">
+    <input
+      class="form-control"
+      type="email"
+      placeholder="Введите ваш email..."
+      id="email"
+      formControlName="email"
+      [ngClass]="{
+        'is-invalid':
+          mailingForm.get('email')?.invalid && mailingForm.get('email')?.touched
+      }"
+    />
+    <button
+      [disabled]="!mailingForm.valid"
+      type="submit"
+      class="button mailing__button"
+    >
+      Подписаться
+    </button>
+  </form>
+</div>

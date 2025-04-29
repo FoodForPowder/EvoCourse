@@ -1,0 +1,137 @@
+
+.carousel {
+    background-color: #E7FAFE;
+    border-radius: 20px;
+    position: relative;
+    height: 100%;
+    
+}
+
+
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-item__column{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    gap:30px;
+    height: 810px;
+}
+.carousel-item .carousel-item__column:first-child
+ {
+    padding: 45px 50px 50px 50px;
+}
+.carousel-item__container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: center;
+    height: 100%;
+}
+.carousel-item__title {
+font-weight: 600;
+font-size: 60px;
+line-height: calc(60 / 60 * 100%);
+
+}
+.carousel-item__text{
+    flex:1 0 auto;
+    color:#00000099;
+    
+font-weight: 400;
+font-size: 16px;
+line-height: calc(28 / 16 * 100%);
+}
+
+.carousel-item__about .carousel-item__row:not(:last-child){
+    margin-bottom: 35px;
+}
+.carousel-item__row {
+    display: flex;
+    align-items: center;
+
+}
+.carousel-item__row .carousel-item__badge:not(:last-child){
+    margin-right: 16px;
+}
+
+
+
+
+.carousel-item__user-info {
+    flex: 1 1 auto;
+}
+.user-info {
+    display: flex;
+    gap:16px;
+}
+
+.user-info__img img{
+width: 50px;
+height: 50px;
+border-radius: 50%;
+}
+
+.user-info__name {
+font-weight: 700;
+font-size: 16px;
+line-height: 100%;
+
+
+}
+.user-info__date {
+    margin: 8px 0 0 0;
+font-weight: 500;
+font-size: 14px;
+line-height: 100%;
+
+
+}
+.carousel-item__button {
+
+    padding: 18px 36px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    height: 100%;
+    margin: 0 0 0 0;
+    background-color: #E6FAFE;
+    border-radius: 21px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 1;
+    max-height: 550px;
+}
+
+.carousel-control-prev {
+    left: -248px;
+}
+
+.carousel-control-next {
+    right: -248px;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background-color: #d0f0f8;
+}
+
+.carousel-item__ibg{
+    
+   height: 100%;
+}
+.carousel-item__ibg img{
+    border-radius: 0 20px 20px 0;
+}
+.carousel-inner{
+    height: 100%;
+}
+.carousel-item{
+    height: 100%;
+}

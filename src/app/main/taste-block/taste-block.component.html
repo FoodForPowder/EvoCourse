@@ -1,0 +1,16 @@
+<div class="taste-block">
+  <div class="taste-block__header">
+    <h2 class="taste-block__title">Попробуйте эти вкусные рецепты</h2>
+    <h4 class="taste-block__subtitle">
+      Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqut enim ad minim
+    </h4>
+  </div>
+  <div class="taste-block__post" >
+    <app-best-card
+      *ngFor="let item of Posts"
+      [post]="item"
+      [isWhite]="true"
+    ></app-best-card>
+  </div>
+</div>
