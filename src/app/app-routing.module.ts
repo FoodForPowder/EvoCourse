@@ -8,6 +8,7 @@ import { ErrorComponent } from './error/error.component';
 import { PostsComponent } from './posts/posts.component';
 import { CreatePostComponent } from './posts/create-post/create-post.component';
 import { UserGuardGuard } from './guards/user-guard.guard';
+import { AdministratorComponent } from './administrator/administrator.component';
 
 const routes: Routes = [
   {
@@ -50,8 +51,20 @@ const routes: Routes = [
     component: PostsComponent,
   },
   {
+    path: 'admin',
+    redirectTo: 'admin/users',
+  },
+  {
+    path: 'admin/users',
+    component: AdministratorComponent,
+  },
+  {
+    path: 'admin/recipes',
+    component: AdministratorComponent,
+  },
+  {
     path: 'create-recipe',
-    canActivate:[UserGuardGuard],
+    canActivate: [UserGuardGuard],
     component: CreatePostComponent,
   },
   { path: '**', redirectTo: '/not-found' },
