@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import { PostsService } from '../services/posts.service';
-import { ExtendedPost, Post } from '../models/post';
-import { filter, switchMap } from 'rxjs';
+import { PostsService } from '../../services/posts.service';
+import { ExtendedPost, Post } from '../../models/post';
 import { ToastrService } from 'ngx-toastr';
-import { PostComment } from '../models/comment';
+import { PostComment } from '../../models/comment';
+import { LikedPostState } from '../../store/post.state';
+import { LikedPostsStoreService } from '../../services/liked-posts-store.service';
+
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
@@ -22,7 +24,8 @@ export class PostComponent implements OnInit {
     private title: Title,
     private meta: Meta,
     private postsService: PostsService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private likedPostsService: LikedPostsStoreService
   ) {}
   ngOnInit(): void {
     this.router.paramMap.subscribe((params) => {
@@ -101,5 +104,24 @@ export class PostComponent implements OnInit {
         this.toastr.error('Попробуйте позже', 'Произошла ошибка');
       },
     });
+  }
+  isLiked(id: string) {
+    return this.likedPostsService.checkPost(id);
+  }
+  updaePost(id: string) {
+    let liked = false;
+    this.isLiked(id).subscribe((isLiked) => {
+      liked = isLiked;
+    });
+    this.likedPostsService.updateLikedPosts(id);
+    if (liked) {
+      this.toastr.success(
+        'Сохранили этот рецепт для вас',
+        'Добавлено в избранное',
+        {
+          positionClass: 'toast-top-right',
+        }
+      );
+    }
   }
 }

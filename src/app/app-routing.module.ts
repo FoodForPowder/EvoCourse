@@ -3,8 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthComponent } from './auth/auth.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { MainComponent } from './main/main.component';
-import { PostComponent } from './post/post.component';
+import { PostComponent } from './posts/post/post.component';
 import { ErrorComponent } from './error/error.component';
+import { PostsComponent } from './posts/posts.component';
+import { CreatePostComponent } from './posts/create-post/create-post.component';
+import { UserGuardGuard } from './guards/user-guard.guard';
 
 const routes: Routes = [
   {
@@ -41,6 +44,15 @@ const routes: Routes = [
       title: 'Страница не найдена',
       message: 'К сожалению, мы не смогли найти страницу, которую вы ищете',
     },
+  },
+  {
+    path: 'recipes',
+    component: PostsComponent,
+  },
+  {
+    path: 'create-recipe',
+    canActivate:[UserGuardGuard],
+    component: CreatePostComponent,
   },
   { path: '**', redirectTo: '/not-found' },
 ];

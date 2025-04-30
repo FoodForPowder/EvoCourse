@@ -1,0 +1,271 @@
+<div class="create-post">
+  <div class="create-post__container container">
+    <h1 class="create-post__tittle">Создание рецепта</h1>
+    <form [formGroup]="postForm" class="create-post__form post-form">
+      <div class="post-form__group">
+        <h3 class="post-form__subtitle">Основная информация</h3>
+        <div class="post-form__row">
+          <label for="title" class="post-form__label">Название рецепта</label>
+          <input
+            id="title"
+            type="text"
+            class="post-form__control form-control"
+            formControlName="title"
+            [ngClass]="{
+              'is-invalid':
+                postForm.get('title')?.invalid && postForm.get('title')?.touched
+            }"
+          />
+        </div>
+        <div class="post-form__row">
+          <label for="body" class="post-form__label">Краткое описание</label>
+          <div class="post-form__column">
+            <textarea
+              id="body"
+              type="text"
+              class="post-form__control form-control"
+              formControlName="body"
+              [ngClass]="{
+                'is-invalid':
+                  postForm.get('body')?.invalid && postForm.get('body')?.touched
+              }"
+            >
+            </textarea>
+            <span id="bodyHelp" class="form-text post-form__text">
+              Опишите о чем ваш рецепт
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="post-form__group">
+        <h3 class="post-form__subtitle">Дополнительная информация</h3>
+        <div class="post-form__row">
+          <label for="tags" class="post-form__label">Категория</label>
+          <input
+            id="tags"
+            type="text"
+            class="post-form__control form-control"
+            formControlName="tags"
+            [ngClass]="{
+              'is-invalid':
+                postForm.get('tags')?.invalid && postForm.get('tags')?.touched
+            }"
+          />
+        </div>
+        <div class="post-form__row">
+          <label for="timeCooking" class="post-form__label"
+            >Время приготовления</label
+          >
+          <input
+            id="timeCooking"
+            type="text"
+            class="post-form__control form-control"
+            formControlName="timeCooking"
+            [ngClass]="{
+              'is-invalid':
+                postForm.get('timeCooking')?.invalid &&
+                postForm.get('timeCooking')?.touched
+            }"
+          />
+        </div>
+        <ng-container formGroupName="foodValue">
+          <div class="post-form__row">
+            <label for="proteins" class="post-form__label">Белки</label>
+            <input
+              id="proteins"
+              type="number"
+              class="post-form__control form-control"
+              formControlName="proteins"
+              [ngClass]="{
+                'is-invalid':
+                  postForm.get('proteins')?.invalid &&
+                  postForm.get('proteins')?.touched
+              }"
+            />
+          </div>
+          <div class="post-form__row">
+            <label for="fats" class="post-form__label">Жиры</label>
+            <input
+              id="fats"
+              type="number"
+              class="post-form__control form-control"
+              formControlName="fats"
+              [ngClass]="{
+                'is-invalid':
+                  postForm.get('fats')?.invalid && postForm.get('fats')?.touched
+              }"
+            />
+          </div>
+          <div class="post-form__row">
+            <label for="carbohydrates" class="post-form__label">Углеводы</label>
+            <input
+              id="carbohydrates"
+              type="number"
+              class="post-form__control form-control"
+              formControlName="carbohydrates"
+              [ngClass]="{
+                'is-invalid':
+                  postForm.get('carbohydrates')?.invalid &&
+                  postForm.get('carbohydrates')?.touched
+              }"
+            />
+          </div>
+          <div class="post-form__row">
+            <label for="calories" class="post-form__label">Калории</label>
+            <input
+              id="calories"
+              type="number"
+              class="post-form__control form-control"
+              formControlName="calories"
+              [ngClass]="{
+                'is-invalid':
+                  postForm.get('calories')?.invalid &&
+                  postForm.get('calories')?.touched
+              }"
+            />
+          </div>
+        </ng-container>
+      </div>
+      <div class="post-form__group">
+        <h3 class="post-form__subtitle">Детальная информация</h3>
+        <span class="post-form__text"
+          >Детально опишите первый шаг вашего рецепта</span
+        >
+        <ng-container formArrayName="cookingSteps">
+          <ng-container
+            *ngFor="let step of cookingStepsArray.controls; let i = index"
+            [formGroupName]="i"
+          >
+            <div class="post-form__row">
+              <label [for]="'stepTitle' + i" class="post-form__label"
+                >Краткое действие</label
+              >
+              <input
+                [id]="'stepTitle' + i"
+                type="text"
+                class="post-form__control form-control"
+                formControlName="title"
+                [ngClass]="{
+                  'is-invalid':
+                    cookingStepsArray.controls[i].get('title')?.invalid &&
+                    cookingStepsArray.controls[i].get('title')?.touched
+                }"
+              />
+            </div>
+            <div class="post-form__row">
+              <label [for]="'stepDescription' + i" class="post-form__label"
+                >Описание</label
+              >
+              <textarea
+                [id]="'stepDescription' + i"
+                type="text"
+                class="post-form__control form-control"
+                formControlName="description"
+                [ngClass]="{
+                  'is-invalid':
+                    cookingStepsArray.controls[i].get('description')?.invalid &&
+                    cookingStepsArray.controls[i].get('description')?.touched
+                }"
+              >
+              </textarea>
+            </div>
+          </ng-container>
+          <div class="d-flex">
+            <button (click)="addCookingStep()" class="button post-form__button">
+              Добавить еще
+            </button>
+            <button
+              *ngIf="cookingStepsArray.controls.length > 1"
+              type="button"
+              class="button post-form__remove-button"
+              (click)="removeCookingStep(cookingStepsArray.controls.length - 1)"
+            >
+              Удалить шаг
+            </button>
+          </div>
+        </ng-container>
+      </div>
+      <div class="post-form__group">
+        <h3 class="post-form__subtitle">Ингредиенты</h3>
+        <ng-container formArrayName="ingredients">
+          <ng-container
+            *ngFor="let step of ingredientsArray.controls; let i = index"
+            [formGroupName]="i"
+          >
+            <div class="post-form__row">
+              <label [for]="'ingredientTitle' + i" class="post-form__label"
+                >Название ингридиента</label
+              >
+              <input
+                [id]="'ingredientTitle' + i"
+                type="text"
+                class="post-form__control form-control"
+                formControlName="title"
+                [ngClass]="{
+                  'is-invalid':
+                    ingredientsArray.controls[i].get('title')?.invalid &&
+                    ingredientsArray.controls[i].get('title')?.touched
+                }"
+              />
+            </div>
+            <div class="post-form__row">
+              <label
+                [for]="'ingredientdescription' + i"
+                class="post-form__label"
+                >Описание</label
+              >
+              <textarea
+                [id]="'ingredientdescription' + i"
+                type="text"
+                class="post-form__control form-control"
+                formControlName="description"
+                [ngClass]="{
+                  'is-invalid':
+                    ingredientsArray.controls[i].get('description')?.invalid &&
+                    ingredientsArray.controls[i].get('description')?.touched
+                }"
+              >
+              </textarea>
+            </div>
+          </ng-container>
+          <div class="d-flex">
+            <button (click)="addIngredient()" class="button post-form__button">
+              Добавить еще
+            </button>
+            <button
+              *ngIf="ingredientsArray.controls.length > 1"
+              type="button"
+              class="button post-form__remove-button"
+              (click)="removeIngredient(ingredientsArray.controls.length - 1)"
+            >
+              Удалить шаг
+            </button>
+          </div>
+        </ng-container>
+      </div>
+      <button
+        [disabled]="!postForm.valid"
+        (click)="onSubmit()"
+        class="button post-form__submit-button"
+      >
+        <svg
+          width="16"
+          height="12"
+          viewBox="0 0 16 12"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0.00300002 1.884L8 5.882L15.997 1.884C15.9674 1.37444 15.7441 0.895488 15.3728 0.545227C15.0016 0.194965 14.5104 -9.35847e-05 14 3.36834e-08H2C1.48958 -9.35847e-05 0.998447 0.194965 0.627178 0.545227C0.255908 0.895488 0.0326041 1.37444 0.00300002 1.884Z"
+            fill="white"
+          />
+          <path
+            d="M16 4.118L8 8.118L0 4.118V10C0 10.5304 0.210714 11.0391 0.585786 11.4142C0.960859 11.7893 1.46957 12 2 12H14C14.5304 12 15.0391 11.7893 15.4142 11.4142C15.7893 11.0391 16 10.5304 16 10V4.118Z"
+            fill="white"
+          />
+        </svg>
+        <span class="button__text">Отправить рецепт</span>
+      </button>
+    </form>
+  </div>
+</div>

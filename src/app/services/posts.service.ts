@@ -5,6 +5,7 @@ import { ExtendedPost, Post } from '../models/post';
 import { map, Observable } from 'rxjs';
 import { CreateComment } from '../models/create-comment';
 import { PostComment } from '../models/comment';
+import { CreatePost } from '../models/create-post';
 
 @Injectable({
   providedIn: 'root',
@@ -38,5 +39,8 @@ export class PostsService {
       `${this.apiUrl}/posts/${postId}/add-comment`,
       createComment
     );
+  }
+  creapePost(post: CreatePost) {
+    return this.http.post<CreatePost>(`${this.apiUrl}/posts/create`, post);
   }
 }

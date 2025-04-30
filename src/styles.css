@@ -129,7 +129,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-
+    gap:9px;
 }
 .button:hover {
     background: #2E2B7D;
@@ -138,9 +138,7 @@ body {
 .button_full-width{
     width: 100%;
 }
-.button__text {
-    margin: 0px 19px 0 0
-}
+
 .button__icon img{
     height: 24px;
     width: 24px;

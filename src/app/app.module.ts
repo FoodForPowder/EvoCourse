@@ -24,16 +24,18 @@ import { CarouselComponent } from './main/carousel/carousel.component';
 import { BestPostsComponent } from './main/best-posts/best-posts.component';
 import { LikedPostState } from './store/post.state';
 import { BestCardComponent } from './best-card/best-card.component';
-import { TasteBlockComponent } from './main/taste-block/taste-block.component';
+import { TasteBlockComponent } from './taste-block/taste-block.component';
 import { AboutComponent } from './main/about/about.component';
 import { MailingComponent } from './main/mailing/mailing.component';
 import { NotifyState } from './store/notify.state';
 import { NotifyComponent } from './main/notify/notify.component';
 import { FooterComponent } from './footer/footer.component';
-import { PostComponent } from './post/post.component';
+import { PostComponent } from './posts/post/post.component';
 import { FormsModule } from '@angular/forms';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { ErrorComponent } from './error/error.component';
+import { PostsComponent } from './posts/posts.component';
+import { CreatePostComponent } from './posts/create-post/create-post.component';
 registerLocaleData(localeRu, 'ru');
 
 @NgModule({
@@ -54,6 +56,8 @@ registerLocaleData(localeRu, 'ru');
     FooterComponent,
     PostComponent,
     ErrorComponent,
+    PostsComponent,
+    CreatePostComponent,
   ],
   imports: [
     BrowserModule,
