@@ -43,4 +43,13 @@ export class PostsService {
   creapePost(post: CreatePost) {
     return this.http.post<CreatePost>(`${this.apiUrl}/posts/create`, post);
   }
+  
+  deletePost(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/posts/${id}`);
+  }
+
+  
+  updatePost(id: string, post: Partial<CreatePost>): Observable<Post> {
+    return this.http.patch<Post>(`${this.apiUrl}/posts/${id}`, post);
+  }
 }

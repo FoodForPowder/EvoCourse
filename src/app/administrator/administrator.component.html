@@ -3,28 +3,25 @@
     <div class="admin__title">Панель администрирования</div>
     <ul class="nav nav-tabs admin__tabs">
       <li class="admin__tab">
-        <a class="admin__link" data-toggle="tab" routerLink="users">Menu 1</a>
+        <a
+          class="admin__link"
+          [routerLink]="['/admin/users']"
+          routerLinkActive="active"
+          >Управление пользователями</a
+        >
       </li>
       <li class="admin__tab">
-        <a class="admin__link" data-toggle="tab" routerLink="recipes">Menu 2</a>
+        <a
+          class="admin__link"
+          [routerLink]="['/admin/recipes']"
+          routerLinkActive="active"
+          >Управление рецептами</a
+        >
       </li>
     </ul>
 
-    <div class="tab-content">
-      <div id="users" class="tab-pane fade">
-        <h3>Menu 1</h3>
-        <p>
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-          nisi ut aliquip ex ea commodo consequat.
-        </p>
-      </div>
-      <div id="recipes" class="tab-pane fade">
-        <h3>Menu 2</h3>
-        <p>
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque laudantium, totam rem aperiam.
-        </p>
-      </div>
+    <div class="content">
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>

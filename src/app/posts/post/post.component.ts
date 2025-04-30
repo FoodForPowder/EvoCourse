@@ -43,23 +43,16 @@ export class PostComponent implements OnInit {
               ]);
             }
             this.toastr.success('Успешно');
-
             this.postsService.getRandomPosts(3).subscribe({
               next: (data) => {
                 this.othersPost = data;
                 this.toastr.success('Успешно');
-              },
-              error: () => {
-                this.toastr.error('Попробуйте позже', 'Произошла ошибка');
               },
             });
             this.postsService.getRandomPosts(4).subscribe({
               next: (data) => {
                 this.tastePost = data;
                 this.toastr.success('Успешно');
-              },
-              error: () => {
-                this.toastr.error('Попробуйте позже', 'Произошла ошибка');
               },
             });
           },
@@ -122,6 +115,15 @@ export class PostComponent implements OnInit {
           positionClass: 'toast-top-right',
         }
       );
+    }
+  }
+  sharePost() {
+    if (confirm('Вы уверены, что хотите поделиться этим рецептом?')) {
+      const url = window.location.href;
+
+      navigator.clipboard.writeText(url).then(() => {
+        this.toastr.success('Ссылка скопирована в буфер обмена');
+      });
     }
   }
 }

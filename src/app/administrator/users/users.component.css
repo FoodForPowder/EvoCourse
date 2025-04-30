@@ -1,0 +1,114 @@
+
+.users__container {
+    padding: 50px 0;
+}
+
+.users__table-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 1px 2px 0px #0000000F;
+    box-shadow: 0px 1px 3px 0px #0000001A;
+    border: 1px solid #E5E7EB;
+    overflow: hidden; 
+}
+
+.users-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed; 
+}
+
+
+.users-table th:first-child,
+.users-table td:first-child {
+    width: 50%; 
+}
+
+.users-table th:nth-child(2),
+.users-table td:nth-child(2),
+.users-table th:nth-child(3),
+.users-table td:nth-child(3) {
+    width: 15%; 
+}
+
+.users-table th:last-child,
+.users-table td:last-child {
+    width: 20%; 
+}
+
+.users-table tr {
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.users-table tr:last-child {
+    border-bottom: none; 
+}
+
+.users-table thead {
+    background-color: #F9FAFB;
+}
+
+.users-table th {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: calc(16 / 12 * 100%);
+    color: #6B7280;
+    text-transform: uppercase;
+    text-align: left; 
+}
+
+.users-table__header {
+    padding: 12px 24px;
+}
+
+.users-table__header-actions {
+    text-align: right; 
+}
+
+.users-table__cell {
+    padding: 12px 24px;
+    vertical-align: middle; 
+}
+
+
+.users-table__cell:last-child {
+    text-align: right;
+}
+
+
+/* Стиль для статуса */
+.users-table__pin {
+    display: inline-block;
+    border-radius: 10px;
+    padding: 2px 10px;
+    background-color: #D1FAE5;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: calc(16 / 12 * 100%);
+    text-align: center;
+    color: #065F46;
+}
+
+/* Стили для действий */
+.users__actions {
+    display: flex;
+    gap: 16px; 
+    justify-content: flex-end; 
+}
+
+.users__button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.users__button:hover {
+    background-color: #F3F4F6;
+}

@@ -9,6 +9,10 @@ import { PostsComponent } from './posts/posts.component';
 import { CreatePostComponent } from './posts/create-post/create-post.component';
 import { UserGuardGuard } from './guards/user-guard.guard';
 import { AdministratorComponent } from './administrator/administrator.component';
+import { UsersComponent } from './administrator/users/users.component';
+import { AdminPostsComponent } from './administrator/admin-posts/admin-posts.component';
+import { UserComponent } from './administrator/users/user/user.component';
+import { AdminGuard } from './guards/admin.guard';
 
 const routes: Routes = [
   {
@@ -52,15 +56,33 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    redirectTo: 'admin/users',
+    component: AdministratorComponent,
+    canActivate: [AdminGuard],
+    children: [
+      {
+        path: '',
+        redirectTo: 'users',
+        pathMatch: 'full',
+      },
+      {
+        path: 'users',
+        component: UsersComponent,
+      },
+      {
+        path: 'recipes',
+        component: AdminPostsComponent,
+      },
+    ],
   },
   {
-    path: 'admin/users',
-    component: AdministratorComponent,
+    path: 'admin/recipes/:id',
+    canActivate: [AdminGuard],
+    component: CreatePostComponent,
   },
   {
-    path: 'admin/recipes',
-    component: AdministratorComponent,
+    path: 'admin/users/:id',
+    canActivate: [AdminGuard],
+    component: UserComponent,
   },
   {
     path: 'create-recipe',

@@ -1,1 +1,102 @@
-<p>user works!</p>
+<div class="user">
+  <div class="user__container container">
+    <div class="user__header">
+      <div class="user-info">
+        <div class="user-info__img">
+          <img [src]="user.avatar" alt="user" />
+        </div>
+        <div class="user-info__about">
+          <div class="user-info__row">
+            <div class="user-info__name">
+              {{ user.firstName + " " + user.lastName }}
+            </div>
+            <div
+              class="user-info__role-badge"
+              [ngClass]="{ 'user-info__role-badge_red': user.role === 'admin' }"
+            >
+              <svg
+                width="6"
+                height="6"
+                viewBox="0 0 6 6"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="3" cy="3" r="3" />
+              </svg>
+              <div class="user-info__role-badge-text">{{ user.role | role }}</div>
+            </div>
+          </div>
+          <div class="user-info__role">
+            {{
+              "Создан " +
+                (user.createdOn | date : "d MMMM  y" : "GMT+3" : "ru-Ru")
+            }}
+          </div>
+          <div class="user-info__role">{{ user.username }}</div>
+        </div>
+      </div>
+      <button class="button button_red" (click)="deleteUser()">Удалить</button>
+    </div>
+    <div class="user__stats">
+      <div class="user__stats-item">
+        <div class="user__stats-title">Всего рецептов</div>
+        <div class="user__stats-value">{{ user.posts.length }}</div>
+      </div>
+      <div class="user__stats-item">
+        <div class="user__stats-title">Всего комментариев</div>
+        <div class="user__stats-value">{{ user.comments.length }}</div>
+      </div>
+      <div class="user__stats-item">
+        <div class="user__stats-title">Статус</div>
+        <div class="user__stats-value">
+          {{ user.isActive ? "Активен" : "Неактивен" }}
+        </div>
+      </div>
+    </div>
+    <div class="user__posts">
+      <div class="user__posts-title">Созданные рецепты</div>
+      <div class="user__posts-body">
+        <div
+          *ngFor="let item of user.posts"
+          class="user__posts-card posts-card"
+        >
+          <div class="posts-card__img">
+            <img [src]="item.image" alt="Изображение блюда" />
+          </div>
+          <div class="posts-card__name">{{ item.title }}</div>
+          <div class="posts-card__text">
+            {{
+              "Создан " +
+                (item.createdOn | date : "d MMMM  y HH:mm" : "GMT+3" : "ru-Ru")
+            }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="user__about">
+      <div class="user__about-title">Информация аккаунта</div>
+      <div class="user__about-row">
+        <div class="user__about-name">Фамилия</div>
+        <div class="user__about-value">{{ user.lastName }}</div>
+      </div>
+      <div class="user__about-row">
+        <div class="user__about-name">Имя</div>
+        <div class="user__about-value">{{ user.firstName }}</div>
+      </div>
+      <div class="user__about-row">
+        <div class="user__about-name">Отчество</div>
+        <div class="user__about-value">{{ user.middleName }}</div>
+      </div>
+      <div class="user__about-row">
+        <div class="user__about-name">User-Agent</div>
+        <div class="user__about-value">{{ user.userAgent }}</div>
+      </div>
+      <div class="user__about-row">
+        <div class="user__about-name">Последний раз заходил</div>
+        <div class="user__about-value">
+          {{ user.lastEntry | date : "d MMMM  y HH:mm" : "GMT+3" : "ru-Ru" }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

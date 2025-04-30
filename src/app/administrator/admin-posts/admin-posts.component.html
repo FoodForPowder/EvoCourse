@@ -1,1 +1,84 @@
-<p>admin-posts works!</p>
+<div class="posts">
+  <div class="posts__container container">
+    <div class="posts__table-container">
+      <table class="posts__table posts-table">
+        <thead>
+          <tr>
+            <th class="posts-table__header">НАЗВАНИЕ РЕЦЕПТА</th>
+            <th class="posts-table__header">КРАТКОЕ ОПИСАНИЕ</th>
+            <th class="posts-table__header">ID РЕЦЕПТА</th>
+            <th class="posts-table__header">КАТЕГОРИЯ</th>
+            <th class="posts-table__header posts-table__header-actions"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let post of posts" class="posts-table__row">
+            <td class="posts-table__cell posts-table__cell-title">
+              {{ post.title }}
+            </td>
+            <td class="posts-table__cell posts-table__cell-description">
+              {{ post.body }}
+            </td>
+            <td class="posts-table__cell posts-table__cell-id">
+              {{ post.id }}
+            </td>
+            <td class="posts-table__cell posts-table__cell-category">
+              {{ post.tags.join(", ") }}
+            </td>
+            <td class="posts-table__cell posts-table__cell-actions">
+              <div class="posts__actions">
+                <a
+                  [routerLink]="['/admin/recipes', post.id]"
+                  class="posts__button posts__button--edit"
+                >
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 20H21"
+                      stroke="#FFC700"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M16.5 3.5C16.8978 3.10217 17.4374 2.87868 18 2.87868C18.2786 2.87868 18.5544 2.93355 18.8118 3.04015C19.0692 3.14676 19.303 3.30301 19.5 3.5C19.697 3.69698 19.8532 3.93084 19.9598 4.18821C20.0665 4.44558 20.1213 4.72142 20.1213 5C20.1213 5.27857 20.0665 5.55442 19.9598 5.81179C19.8532 6.06916 19.697 6.30302 19.5 6.5L7 19L3 20L4 16L16.5 3.5Z"
+                      stroke="#FFC700"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+                <button
+                  (click)="deletePost(post.id)"
+                  class="posts__button posts__button--delete"
+                >
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M3 6H21M19 6V20C19 21 18 22 17 22H7C6 22 5 21 5 20V6M8 6V4C8 3 9 2 10 2H14C15 2 16 3 16 4V6M10 11V17M14 11V17"
+                      stroke="#E5403A"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

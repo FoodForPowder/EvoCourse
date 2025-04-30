@@ -1,6 +1,12 @@
 <div class="create-post">
   <div class="create-post__container container">
-    <h1 class="create-post__tittle">Создание рецепта</h1>
+    <h1 class="create-post__tittle">
+      {{
+        isEditMode && postTitle
+          ? "Редактирование рецепта: " + postTitle
+          : "Создание рецепта"
+      }}
+    </h1>
     <form [formGroup]="postForm" class="create-post__form post-form">
       <div class="post-form__group">
         <h3 class="post-form__subtitle">Основная информация</h3>
@@ -264,7 +270,9 @@
             fill="white"
           />
         </svg>
-        <span class="button__text">Отправить рецепт</span>
+        <span class="button__text">{{
+          isEditMode ? "Редактировать этот рецепт" : "Отправить рецепт"
+        }}</span>
       </button>
     </form>
   </div>

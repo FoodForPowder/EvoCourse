@@ -40,7 +40,7 @@ import { AdministratorComponent } from './administrator/administrator.component'
 import { UsersComponent } from './administrator/users/users.component';
 import { UserComponent } from './administrator/users/user/user.component';
 import { AdminPostsComponent } from './administrator/admin-posts/admin-posts.component';
-import { AdminPostComponent } from './administrator/admin-posts/admin-post/admin-post.component';
+
 registerLocaleData(localeRu, 'ru');
 
 @NgModule({
@@ -67,7 +67,6 @@ registerLocaleData(localeRu, 'ru');
     UsersComponent,
     UserComponent,
     AdminPostsComponent,
-    AdminPostComponent,
   ],
   imports: [
     BrowserModule,
