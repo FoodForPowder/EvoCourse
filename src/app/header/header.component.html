@@ -24,9 +24,9 @@
 </div>
 <ng-template #authorizedView>
   <div class="header__user-info user-info">
-    <div class="user-info__icon icon">
+    <a routerLink="create-recipe" class="user-info__icon icon">
       <img src="../assets/icons/edit.svg" alt="edit" />
-    </div>
+    </a>
     <div class="user-info__info" data-bs-toggle="dropdown">
       <div class="user-info__img">
         <img [src]="user.avatar" alt="user" />

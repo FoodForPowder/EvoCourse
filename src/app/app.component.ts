@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit, OnDestroy {
-  title = 'EvoCourse';
+  title = 'Foodie';
   private excludedPaths: string[] = ['/not-found', '/access-denied'];
   showHeaderFooter = true;
   constructor(private router: Router) {}

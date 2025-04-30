@@ -64,7 +64,7 @@
           >
           <input
             id="timeCooking"
-            type="text"
+            type="number"
             class="post-form__control form-control"
             formControlName="timeCooking"
             [ngClass]="{
@@ -84,8 +84,8 @@
               formControlName="proteins"
               [ngClass]="{
                 'is-invalid':
-                  postForm.get('proteins')?.invalid &&
-                  postForm.get('proteins')?.touched
+                  postForm.get('foodValue')?.get('proteins')?.invalid &&
+                  postForm.get('foodValue')?.get('proteins')?.touched
               }"
             />
           </div>
@@ -98,7 +98,8 @@
               formControlName="fats"
               [ngClass]="{
                 'is-invalid':
-                  postForm.get('fats')?.invalid && postForm.get('fats')?.touched
+                  postForm.get('foodValue')?.get('fats')?.invalid &&
+                  postForm.get('foodValue')?.get('fats')?.touched
               }"
             />
           </div>
@@ -111,8 +112,8 @@
               formControlName="carbohydrates"
               [ngClass]="{
                 'is-invalid':
-                  postForm.get('carbohydrates')?.invalid &&
-                  postForm.get('carbohydrates')?.touched
+                  postForm.get('foodValue')?.get('carbohydrates')?.invalid &&
+                  postForm.get('foodValue')?.get('carbohydrates')?.touched
               }"
             />
           </div>
@@ -125,8 +126,8 @@
               formControlName="calories"
               [ngClass]="{
                 'is-invalid':
-                  postForm.get('calories')?.invalid &&
-                  postForm.get('calories')?.touched
+                  postForm.get('foodValue')?.get('calories')?.invalid &&
+                  postForm.get('foodValue')?.get('calories')?.touched
               }"
             />
           </div>

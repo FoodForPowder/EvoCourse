@@ -1,12 +1,9 @@
-.create-post {
-    
-}
+
 .create-post__container {
     padding: 60px 0;
     
 }
-.container {
-}
+
 .create-post__tittle {
     
     font-weight: 600;
@@ -15,12 +12,7 @@
     letter-spacing: 0%;
     
 }
-.create-post__form {
-    
 
-}
-.post-form {
-}
 .post-form__group {
     margin-top: 40px;
 }
@@ -72,8 +64,6 @@ color: #374151;
     margin-right: auto;
     max-width: 512px;
 }
-.form-control {
-}
 
 .post-form__text {
     
@@ -83,14 +73,12 @@ line-height: calc(20 / 14 * 100%);
 
 color: #6B7280;
 }
-.button {
-}
+
 .post-form__button {
     
     margin-top: 30px;
 }
-.button__text {
-}
+
 .post-form__submit-button{
     
     margin-left: auto ;
